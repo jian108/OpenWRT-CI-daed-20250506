@@ -1,5 +1,5 @@
 #CI项目
-name: QCA-6.6-VIKINGYFY
+name: NN6000V2
 
 #CI计划
 on:
@@ -32,8 +32,8 @@ jobs:
       fail-fast: false
       #max-parallel: 3
       matrix:
-        CONFIG: [IPQ807X-NOWIFI, IPQ807X-WIFI,IPQ60XX-NOWIFI, IPQ60XX-WIFI]
-        SOURCE: [VIKINGYFY/immortalwrt]
+        CONFIG: [IPQ60XX-WIFI-YES]
+        SOURCE: [guorong697/immortalwrt]
         BRANCH: [main]
 
     #调用公用编译核心WRT-CORE.yml
@@ -44,7 +44,7 @@ jobs:
       #默认主题
       WRT_THEME: argon
       #默认主机名
-      WRT_NAME: DAE-WRT
+      WRT_NAME: OWRT
       #默认WIFI名称
       WRT_SSID: OWRT
       #默认WIFI密码
@@ -63,5 +63,3 @@ jobs:
       WRT_PACKAGE: ${{inputs.PACKAGE}}
       #仅输出配置文件
       WRT_TEST: ${{inputs.TEST}}
-
-      CI_NAME: ${{github.workflow}}
